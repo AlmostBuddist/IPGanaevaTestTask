@@ -1,0 +1,20 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.auth-page a {
+    justify-self: flex-start;
+    align-self: flex-start;
+}
+
+.auth-page .page-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-top: 16px;
+}
+
+
