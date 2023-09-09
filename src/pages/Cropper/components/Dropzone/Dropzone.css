@@ -1,0 +1,24 @@
+.dropzone {
+    display: flex;
+    margin-top: 15px;
+    
+    border: 2px dashed #02b4fa;
+    border-radius: 8px;
+
+    background-color: #02b4fa35;
+
+    padding: 25px; 
+    transition: 0.3s;
+}
+
+.dropzone.active-drag {
+    border: 2px dashed #fad502;
+    background-color: #fad50235;
+    transition: 0.3s;
+}
+
+.dropzone .dropzone-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
