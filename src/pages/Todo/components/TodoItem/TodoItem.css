@@ -1,0 +1,23 @@
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.todo-item .todo-item-main {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.todo-item .todo-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+} 
+
+.todo-item.checked .todo-item-content{
+    text-decoration: line-through;
+    color: #777
+}
