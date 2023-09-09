@@ -13,8 +13,6 @@ const TodoPage = () => {
     setTodos((prev) => [...prev, todo])
   }
 
-  console.log(todos)
-
   const handleDelete = (id: ITodo['id']) => {
     setTodos((prev) => prev.filter((item) => item.id !== id))
   }
