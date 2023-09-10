@@ -1,0 +1,19 @@
+.main-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.main-page .main-page-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-page .main-page-content a {
+    color: black;
+    font-size: 20px;
+}

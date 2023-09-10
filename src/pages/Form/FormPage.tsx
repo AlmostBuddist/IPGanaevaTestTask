@@ -2,11 +2,11 @@ import { Button, Checkbox, TextInputField } from 'evergreen-ui'
 import { Controller, useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { schema } from './conts/schema'
-import { texts } from './conts/authConsts'
-import './FormPage.css'
+import { texts } from './conts/formConsts'
 import { Header } from '@/components'
+import './FormPage.css'
 
-const AuthPage = () => {
+const FormPage = () => {
   const {
     register,
     handleSubmit,
@@ -14,17 +14,20 @@ const AuthPage = () => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
+    defaultValues: {
+      privacyPolicy: false,
+    },
   })
 
   const onSubmit = (data: any) => {
-    console.log(data)
+    alert(JSON.stringify(data, null, 2))
   }
 
   return (
-    <div className="auth-page">
+    <div className="form-page">
       <div className="page-wrapper">
         <Header />
-        <form onSubmit={handleSubmit(onSubmit)} className="auth-form">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h2>Введите ваши данные</h2>
           <TextInputField
             {...register(texts.name.key)}
@@ -37,6 +40,13 @@ const AuthPage = () => {
             label={texts.email.label}
             isInvalid={!!errors[texts.email.key]}
             validationMessage={errors[texts.email.key]?.message}
+          />
+          <TextInputField
+            {...register(texts.tel.key)}
+            label={texts.tel.label}
+            isInvalid={!!errors[texts.tel.key]}
+            validationMessage={errors[texts.tel.key]?.message}
+            maxLength={12}
           />
           <TextInputField
             {...register(texts.password.key)}
@@ -67,7 +77,9 @@ const AuthPage = () => {
               )
             }}
           />
-
+          {errors[texts.privacyPolicy.key] && (
+            <p className="policy-error">Требуется принять политику</p>
+          )}
           <Button type="submit">Отправить</Button>
         </form>
       </div>
@@ -75,4 +87,4 @@ const AuthPage = () => {
   )
 }
 
-export default AuthPage
+export default FormPage

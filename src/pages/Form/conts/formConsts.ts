@@ -7,6 +7,10 @@ export const texts = {
         key: 'emailBox',
         label: 'Почта',
     },
+    tel: {
+        key: 'tel',
+        label: 'Телефон',
+    },
     password: {
         key: 'password',
         label: 'Пароль',
