@@ -1,15 +1,18 @@
-.auth-page {
+.form-page {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
 }
 
-.auth-page .page-wrapper {
+.form-page .page-wrapper {
     display: flex;
     flex-direction: column;
     width: 50%;
     padding-top: 16px;
 }
 
-
+.policy-error {
+    font-size: 12px;
+    color: red;
+}

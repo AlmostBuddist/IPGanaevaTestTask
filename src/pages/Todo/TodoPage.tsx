@@ -1,13 +1,13 @@
 import { SyntheticEvent } from 'react'
 import { Header } from '@/components'
-import { TodoForm, TodoList } from './components'
+import { EditTodoModal, TodoForm, TodoList } from './components'
 import { useState } from 'react'
 import { ITodo } from '@/types'
 import './TodoPage.css'
 
 const TodoPage = () => {
   const [todos, setTodos] = useState<ITodo[]>([])
-  const [editItemId, setEditItemId] = useState<string>()
+  const [editedTodo, setEditedTodo] = useState<ITodo | null>()
 
   const handleAddTodo = (todo: ITodo) => {
     setTodos((prev) => [...prev, todo])
@@ -37,12 +37,12 @@ const TodoPage = () => {
     )
   }
 
-  const handleEditModeOn = (id: ITodo['id']) => {
-    setEditItemId(id)
+  const handleEditModeOn = (todo: ITodo) => {
+    setEditedTodo(todo)
   }
 
   const handleEditModeOff = () => {
-    setEditItemId(undefined)
+    setEditedTodo(null)
   }
 
   const handleEditTodo = (id: string, newText: string) => {
@@ -68,14 +68,19 @@ const TodoPage = () => {
         <TodoForm handleAddTodo={handleAddTodo} />
         <TodoList
           todos={todos}
-          editId={editItemId}
           handleDelete={handleDelete}
           handleCompliteChange={handleCompliteChange}
-          handleEditTodo={handleEditTodo}
           handleEditModeOn={handleEditModeOn}
-          handleEditModeOff={handleEditModeOff}
         />
       </div>
+      {editedTodo && (
+        <EditTodoModal
+          isShown={!!editedTodo}
+          todo={editedTodo}
+          onClose={handleEditModeOff}
+          handleEditTodo={handleEditTodo}
+        />
+      )}
     </div>
   )
 }
