@@ -1,4 +1,4 @@
-# IPGanaevaTestTask
+# SomeProject
 
 ## Start
 
